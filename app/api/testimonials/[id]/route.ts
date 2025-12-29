@@ -7,11 +7,13 @@ import { testimonialSchema } from '@/lib/validations';
 // GET single testimonial
 export async function GET(
   req: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await context.params;
+
     await connectDB();
-    const testimonial = await Testimonial.findById(params.id);
+    const testimonial = await Testimonial.findById(id);
 
     if (!testimonial) {
       return NextResponse.json(
@@ -32,7 +34,7 @@ export async function GET(
 // PUT update testimonial (protected)
 export async function PUT(
   req: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: Promise<{ id: string }> }
 ) {
   try {
     const currentUser = await getCurrentUser();
@@ -43,9 +45,10 @@ export async function PUT(
       );
     }
 
+    const { id } = await context.params;
     const body = await req.json();
-    const validation = testimonialSchema.safeParse(body);
 
+    const validation = testimonialSchema.safeParse(body);
     if (!validation.success) {
       return NextResponse.json(
         { success: false, error: validation.error.message },
@@ -55,7 +58,7 @@ export async function PUT(
 
     await connectDB();
     const testimonial = await Testimonial.findByIdAndUpdate(
-      params.id,
+      id,
       validation.data,
       { new: true, runValidators: true }
     );
@@ -79,7 +82,7 @@ export async function PUT(
 // DELETE testimonial (protected)
 export async function DELETE(
   req: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: Promise<{ id: string }> }
 ) {
   try {
     const currentUser = await getCurrentUser();
@@ -90,8 +93,10 @@ export async function DELETE(
       );
     }
 
+    const { id } = await context.params;
+
     await connectDB();
-    const testimonial = await Testimonial.findByIdAndDelete(params.id);
+    const testimonial = await Testimonial.findByIdAndDelete(id);
 
     if (!testimonial) {
       return NextResponse.json(

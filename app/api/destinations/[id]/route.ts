@@ -7,11 +7,13 @@ import { destinationSchema } from '@/lib/validations';
 // GET single destination
 export async function GET(
   req: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await context.params;
+
     await connectDB();
-    const destination = await Destination.findById(params.id);
+    const destination = await Destination.findById(id);
 
     if (!destination) {
       return NextResponse.json(
@@ -32,7 +34,7 @@ export async function GET(
 // PUT update destination (protected)
 export async function PUT(
   req: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: Promise<{ id: string }> }
 ) {
   try {
     const currentUser = await getCurrentUser();
@@ -43,9 +45,10 @@ export async function PUT(
       );
     }
 
+    const { id } = await context.params;
     const body = await req.json();
-    const validation = destinationSchema.safeParse(body);
 
+    const validation = destinationSchema.safeParse(body);
     if (!validation.success) {
       return NextResponse.json(
         { success: false, error: validation.error.message },
@@ -55,7 +58,7 @@ export async function PUT(
 
     await connectDB();
     const destination = await Destination.findByIdAndUpdate(
-      params.id,
+      id,
       validation.data,
       { new: true, runValidators: true }
     );
@@ -79,7 +82,7 @@ export async function PUT(
 // DELETE destination (protected)
 export async function DELETE(
   req: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: Promise<{ id: string }> }
 ) {
   try {
     const currentUser = await getCurrentUser();
@@ -90,8 +93,10 @@ export async function DELETE(
       );
     }
 
+    const { id } = await context.params;
+
     await connectDB();
-    const destination = await Destination.findByIdAndDelete(params.id);
+    const destination = await Destination.findByIdAndDelete(id);
 
     if (!destination) {
       return NextResponse.json(
