@@ -6,16 +6,18 @@ import TopDestinations from "@/components/home/TopDestinations";
 import Footer from "@/components/shared/Footer";
 import Navbar from "@/components/shared/Navbar";
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <main className="min-h-screen flex flex-col">
-      <Navbar></Navbar>
-      <Hero></Hero>
-      <Partners></Partners>
-      <TopDestinations></TopDestinations>
-      <AboutUs></AboutUs>
-      <Testimonials></Testimonials>
-      <Footer></Footer>
-    </main>
+    <>
+      <Navbar />
+      <main>
+        <Hero />
+        <Partners />
+        <TopDestinations />
+        <AboutUs />
+        <Testimonials />
+      </main>
+      <Footer />
+    </>
   );
 }

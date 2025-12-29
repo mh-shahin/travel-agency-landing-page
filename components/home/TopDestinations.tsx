@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
 import { Star, ChevronLeft, ChevronRight } from 'lucide-react';
@@ -80,7 +81,12 @@ function DestinationCard({ destination }: { destination: Destination }) {
   return (
     <div className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow">
       <div className="relative h-48">
-        <h1>image</h1>
+        <Image
+          src={destination.image}
+          alt={destination.name}
+          fill
+          className="w-full h-full object-cover"
+        />
       </div>
       <div className="p-4">
         <div className="flex items-start justify-between mb-2">

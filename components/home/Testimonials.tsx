@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination } from 'swiper/modules';
 import { Star } from 'lucide-react';
@@ -87,7 +88,13 @@ function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
       </p>
 
       <div className="flex items-center gap-3 bg-blue-600 text-white p-4 rounded-xl -mx-6 -mb-6">
-        <h1>image</h1>
+        <Image
+          src={testimonial.image || '/default-avatar.png'}
+          alt={testimonial.name}
+          width={48}
+          height={48}
+          className="rounded-full object-cover border-2 border-white"
+        />
         <div>
           <h4 className="font-semibold">{testimonial.name}</h4>
           <p className="text-sm text-blue-100">{testimonial.role}</p>

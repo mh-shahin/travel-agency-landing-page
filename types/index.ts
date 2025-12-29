@@ -5,7 +5,9 @@ export interface Destination {
   location: string;
   image: string;
   rating: number;
+  price: number;
   description?: string;
+  featured?: boolean;
   createdAt?: Date;
   updatedAt?: Date;
 }

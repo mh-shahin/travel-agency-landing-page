@@ -38,7 +38,7 @@ export default function Navbar() {
             ))}
             <Link href="/login">
               <button className="bg-gray-900 text-white px-6 py-2 rounded-full hover:bg-gray-800 transition-colors">
-                Book Trip
+                Login
               </button>
             </Link>
           </div>
@@ -67,7 +67,7 @@ export default function Navbar() {
             ))}
             <Link href="/login" onClick={() => setIsOpen(false)}>
               <button className="w-full mt-2 bg-gray-900 text-white px-6 py-2 rounded-full">
-                Book Trip
+                Login
               </button>
             </Link>
           </div>

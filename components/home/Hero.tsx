@@ -1,8 +1,16 @@
+
+import Image from 'next/image';
+import img from "@/components/home/image/plane.jpg";
 export default function Hero() {
   return (
     <section className="relative h-150 rounded-3xl overflow-hidden mx-4 md:mx-8 mt-8">
-      <div className="absolute inset-0">
-        <h1>image</h1>
+      <div className="absolute inset-0 ">
+        <Image
+          src={img}
+          alt="Hero Image"
+          fill
+          className=" object-cover"
+        />
         <div className="absolute inset-0 bg-linear-to-r from-black/50 to-transparent" />
       </div>
       
