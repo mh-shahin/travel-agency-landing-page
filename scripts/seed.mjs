@@ -3,6 +3,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import mongoose from 'mongoose';
 import bcrypt from 'bcryptjs';
+import { error } from 'console';
 
 // Resolve project root for .env.local
 const __filename = fileURLToPath(import.meta.url);
@@ -173,7 +174,7 @@ async function seed() {
 
     await mongoose.connection.close();
     process.exit(0);
-  } catch {
+  } catch (error) {
     console.error('SEED FAILED:', error.message);
     process.exit(1);
   }

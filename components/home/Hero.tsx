@@ -1,6 +1,6 @@
 
 import Image from 'next/image';
-import img from "@/components/home/image/plane.jpg";
+import img from "@/components/home/image/Rectangle 1.png";
 export default function Hero() {
   return (
     <section className="relative h-150 rounded-3xl overflow-hidden mx-4 md:mx-8 mt-8">
