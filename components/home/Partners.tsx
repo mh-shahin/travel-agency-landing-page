@@ -7,7 +7,7 @@
 export default function Partners() {
 
   return (
-    <section className="py-8 px-4 md:px-8">
+    <section className="py-6 px-4 md:px-8">
       <div className="flex flex-wrap justify-center items-center gap-12">
         <Image src={img1} alt="Expedia" />
         <Image src={img2} alt="Erivago" />

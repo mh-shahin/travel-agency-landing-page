@@ -35,11 +35,11 @@ export default function TopDestinations() {
 
   return (
     <section className="py-16 px-4 md:px-8">
-      <div className="mb-8">
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
+      <div className="mb-8 relative w-full max-w-312 mx-auto">
+        <h2 className="text-4xl md:text-4xl font-bold text-blue-600 mb-2">
           Top Destination
         </h2>
-        <p className="text-gray-600">Explore our top destinations voted by customers</p>
+        <p className="text-black">Explore our top destinations voted by customers</p>
       </div>
 
       <div className="relative">
@@ -79,20 +79,19 @@ export default function TopDestinations() {
 
 function DestinationCard({ destination }: { destination: Destination }) {
   return (
-    <div className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow">
-      <div className="relative h-48">
+    <div className="bg-white overflow-hidden shadow-md hover:shadow-xl transition-shadow">
+      <div className="destination-image-wrapper relative mx-auto rounded-4xl">
         <Image
           src={destination.image}
           alt={destination.name}
           fill
-          className="w-full h-full object-cover"
+          className="object-cover p-2"
         />
       </div>
       <div className="p-4">
         <div className="flex items-start justify-between mb-2">
           <div>
-            <h3 className="font-bold text-lg">{destination.name}</h3>
-            <p className="text-gray-600 text-sm">{destination.location}</p>
+            <h3 className="font-bold text-lg">{destination.location} - {destination.name}</h3>
           </div>
           <div className="flex items-center gap-1 bg-yellow-100 px-2 py-1 rounded-full">
             <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />

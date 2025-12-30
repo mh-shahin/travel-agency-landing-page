@@ -14,8 +14,8 @@ export default function Footer() {
             <div className="flex items-center gap-2 mb-4 text-black">
               <Image src={img} alt="Logo" width={120} height={40} />
             </div>
-            <p className="text-black text-sm">
-              Your trusted partner in creating unforgettable travel experiences.
+            <p className="text-black text-sm w-4/6">
+              Discover the world one adventure at a time Life is short, book the trip.
             </p>
             <div className="flex gap-3 mt-4 bg-black p-2 rounded-full w-max">
               <a href="#" className="bg-white p-2 rounded-full hover:bg-blue-600 transition-colors">
@@ -37,8 +37,8 @@ export default function Footer() {
             <h3 className="font-bold mb-4">Company</h3>
             <ul className="space-y-2 text-sm text-black">
               <li><Link href="#" className="hover:text-black">About Us</Link></li>
-              <li><Link href="#" className="hover:text-black">Our Guide</Link></li>
-              <li><Link href="#" className="hover:text-black">FAQ</Link></li>
+              <li><Link href="#" className="hover:text-black">Tour Guide</Link></li>
+              <li><Link href="#" className="hover:text-black">Packages</Link></li>
               <li><Link href="#" className="hover:text-black">Contact</Link></li>
             </ul>
           </div>
@@ -46,10 +46,10 @@ export default function Footer() {
           <div>
             <h3 className="font-bold mb-4">Resource</h3>
             <ul className="space-y-2 text-sm text-black">
-              <li><Link href="#" className="hover:text-black">Download</Link></li>
-              <li><Link href="#" className="hover:text-black">Help center</Link></li>
-              <li><Link href="#" className="hover:text-black">Partners</Link></li>
-              <li><Link href="#" className="hover:text-black">Our Sponsors</Link></li>
+              <li><Link href="#" className="hover:text-black">Free Ebooks</Link></li>
+              <li><Link href="#" className="hover:text-black">Tutorials</Link></li>
+              <li><Link href="#" className="hover:text-black">How To Blogs</Link></li>
+              <li><Link href="#" className="hover:text-black">YouTube Playlists</Link></li>
             </ul>
           </div>
 
@@ -57,13 +57,13 @@ export default function Footer() {
             <h3 className="font-bold mb-4">Extra Links</h3>
             <ul className="space-y-2 text-sm text-black">
               <li><Link href="#" className="hover:text-black">Customer Support</Link></li>
+              <li><Link href="#" className="hover:text-black">T&C</Link></li>
               <li><Link href="#" className="hover:text-black">Privacy Policy</Link></li>
-              <li><Link href="#" className="hover:text-black">Terms of Service</Link></li>
             </ul>
           </div>
         </div>
 
-        <div className="border-t border-black pt-8 text-center text-sm text-black">
+        <div className="pt-8 text-center text-sm text-black">
           © 2025 Travelo.com. All Rights Reserved.
         </div>
       </div>
